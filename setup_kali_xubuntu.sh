@@ -36,7 +36,7 @@ ufw enable
 
 
 # Setup OSCP tools
-apt install gobuster htmml2text exiftool libxml2-utils wce
+apt install htmml2text exiftool libxml2-utils wce
 pip install pyftpdlib
 
 mkdir /ftp
