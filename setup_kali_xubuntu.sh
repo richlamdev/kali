@@ -11,11 +11,12 @@ apt update
 apt install pip ufw -y
 
 # Disable IPv6
-sed -e '/GRUB_CMDLINE_LINUX_DEFAULT=/ s/^#*/#/' -i_backup /etc/default/grub
-sed -e '/GRUB_CMDLINE_LINUX=/ s/^#*/#/' -i_backup /etc/default/grub
-sed -e '/GRUB_CMDLINE_LINUX_DEFAULT=/ a\GRUB_CMDLINE_LINUX_DEFAULT="quiet ipv6.disable=1"' -i_backup /etc/default/grub
-sed -e '/GRUB_CMDLINE_LINUX=/ a\GRUB_CMDLINE_LINUX="initrd=/install/initrd.gz ipv6.disable=1"' -i_backup /etc/default/grub
-update-grub2
+# Do not disable IPv6 for hackthebox.eu lab
+#sed -e '/GRUB_CMDLINE_LINUX_DEFAULT=/ s/^#*/#/' -i_backup /etc/default/grub
+#sed -e '/GRUB_CMDLINE_LINUX=/ s/^#*/#/' -i_backup /etc/default/grub
+#sed -e '/GRUB_CMDLINE_LINUX_DEFAULT=/ a\GRUB_CMDLINE_LINUX_DEFAULT="quiet ipv6.disable=1"' -i_backup /etc/default/grub
+#sed -e '/GRUB_CMDLINE_LINUX=/ a\GRUB_CMDLINE_LINUX="initrd=/install/initrd.gz ipv6.disable=1"' -i_backup /etc/default/grub
+#update-grub2
 
 # Configure SSH Server
 sed -e '/AddressFamily/ s/^#*/#/' -i_backup /etc/ssh/sshd_config
