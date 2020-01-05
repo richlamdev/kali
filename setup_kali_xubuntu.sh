@@ -8,7 +8,7 @@ cp .vimrc ..
 
 # Install software
 apt update
-apt install pip ufw -y
+apt install python-pip ufw -y
 
 # Disable IPv6
 # Do not disable IPv6 for hackthebox.eu lab
