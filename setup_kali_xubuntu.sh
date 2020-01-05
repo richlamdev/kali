@@ -34,9 +34,8 @@ ufw enable
 # Start OpenSSH Server
 #systemctl enable ssh
 
-
 # Setup OSCP tools
-apt install htmml2text exiftool libxml2-utils wce
+apt install html2text exiftool libxml2-utils wce
 pip install pyftpdlib
 
 mkdir /ftp
@@ -44,3 +43,13 @@ mkdir /ftp
 cp /usr/share/windows-binaries/*exe /ftp/.
 cp /usr/share/unix-privesc-check/unix-privesc-check /ftp/.
 cp /usr/share/windows-resources/wce/wce* /ftp/.
+
+
+# Setup latest Firefox ESR default proxy to 127.0.0.1 port 8080
+# For Burp Suite http(s) traffice interception
+
+/usr/bin/firefox-esr -CreateProfile burpsuite
+cp burpsuite.js prefs.js ~/.mozilla/firefox/*.burpsuite/.
+
+# run firefox with -ProfileManager and select burpsuite as default profile
+# /usr/bin/firefox-esr -ProfileManager
