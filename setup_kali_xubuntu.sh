@@ -49,7 +49,7 @@ cp /usr/share/windows-resources/wce/wce* /ftp/.
 # For Burp Suite http(s) traffice interception
 
 /usr/bin/firefox-esr -CreateProfile burpsuite
-cp burpsuite.js prefs.js ~/.mozilla/firefox/*.burpsuite/.
+cp user.js ~/.mozilla/firefox/*.burpsuite/.
 
 # run firefox with -ProfileManager and select burpsuite as default profile
 # /usr/bin/firefox-esr -ProfileManager
