@@ -1,14 +1,14 @@
 #!/bin/bash
-# 
+ 
 # Basic setup script for Kali Linux VMware installation.
-# Created from Kali Linux 2019.4 - Xubuntu
+# Created for Kali Linux 2020.2a - Xubuntu
 
 # Load default vimrc settings
 cp .vimrc ..
 
 # Install software
-apt update
-apt install python-pip ufw -y
+sudo apt update
+sudo apt install jq ufw -y
 
 # Disable IPv6
 # Do not disable IPv6 for hackthebox.eu lab
@@ -19,30 +19,19 @@ apt install python-pip ufw -y
 #update-grub2
 
 # Configure SSH Server
-sed -e '/AddressFamily/ s/^#*/#/' -i_backup /etc/ssh/sshd_config
-sed -e '/AddressFamily/ a\AddressFamily\ inet' -i_backup /etc/ssh/sshd_config
-sed -e '/X11Forwarding\ yes/ s/^#*/#/' -i_backup /etc/ssh/sshd_config
-sed -e '/X11Forwarding\ yes/ a\X11Forwarding\ no' -i_backup /etc/ssh/sshd_config
-sed -e '/PermitRootLogin\ prohibit-password/ s/^#*/#/' -i_backup /etc/ssh/sshd_config
-sed -e '/PermitRootLogin\ prohibit-password/ a\PermitRootLogin no' -i_backup /etc/ssh/sshd_config
+sudo sed -e '/AddressFamily/ s/^#*/#/' -i_backup /etc/ssh/sshd_config
+sudo sed -e '/AddressFamily/ a\AddressFamily\ inet' -i_backup /etc/ssh/sshd_config
+sudo sed -e '/X11Forwarding\ yes/ s/^#*/#/' -i_backup /etc/ssh/sshd_config
+sudo sed -e '/X11Forwarding\ yes/ a\X11Forwarding\ no' -i_backup /etc/ssh/sshd_config
+sudo sed -e '/PermitRootLogin\ prohibit-password/ s/^#*/#/' -i_backup /etc/ssh/sshd_config
+sudo sed -e '/PermitRootLogin\ prohibit-password/ a\PermitRootLogin no' -i_backup /etc/ssh/sshd_config
 
 # Set SSH as only available service 
-#ufw limit 22/tcp
-# Default: no ports available
-ufw enable
+sudo ufw limit 22/tcp
+sudo ufw enable
 
 # Start OpenSSH Server
-#systemctl enable ssh
-
-# Setup OSCP tools
-apt install html2text exiftool libxml2-utils wce
-pip install pyftpdlib
-
-mkdir /ftp
-
-cp /usr/share/windows-binaries/*exe /ftp/.
-cp /usr/share/unix-privesc-check/unix-privesc-check /ftp/.
-cp /usr/share/windows-resources/wce/wce* /ftp/.
+sudo systemctl enable ssh
 
 
 # Setup latest Firefox ESR default proxy to 127.0.0.1 port 8080
